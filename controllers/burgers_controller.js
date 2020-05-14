@@ -1,8 +1,6 @@
 var express = require("express");
-
 var router = express.Router();
-var burger = require("../models/burger.js");
-
+var db = require("../models");
 
 router.get("/", function (req, res) {
     res.redirect("/burgers");
@@ -10,29 +8,39 @@ router.get("/", function (req, res) {
 
 router.get("/burgers", function (req, res) {
     
-    burger.all(function (burgerData) {
-        
-        res.render("index", { burger_data: burgerData });
+    db.Burger.findAll({}).then(function(dbBurger) {
+        console.log(dbBurger);
+        // res.render("index", { burger_data: dbBurger });
     });
+
+    //burger.all(function (burgerData) {
+        
+        //res.render("index", { burger_data: burgerData });
+    //});
 });
 
 router.post("/burgers/create", function (req, res) {
     
-    burger.create(req.body.burger_name, function (result) {
+  
 
-        console.log(result);
-        res.redirect("/");
-    });
+    db.Burger.create(req.body).then(function(dbBurger) {
+        res.json(dbBurger);
+      });
+    //burger.create(req.body.burger_name, function (result) {
+
+       // console.log(result);
+       // res.redirect("/");
+   // });
 });
 
 
-router.put("/burgers/:id", function (req, res) {
-    burger.update(req.params.id, function (result) {
+// router.put("/burgers/:id", function (req, res) {
+//     burger.update(req.params.id, function (result) {
        
-        console.log(result);
+//         console.log(result);
         
-        res.sendStatus(200);
-    });
-});
+//         res.sendStatus(200);
+//     });
+// });
 
 module.exports = router;
