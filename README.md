@@ -1,9 +1,8 @@
-# eat-da-burger
+# Burger 2: The Sequel
 
 
 
-Eat-Da-Burger! is a restaurant app that lets users input the names of burgers they'd like to eat.
-
+The Sequleized Burger App is a web app that lets users create, update, and delete burgers that they have eaten.
 
 Whenever a user submits a burger's name, your app will display the burger on the left side of the page -- waiting to be devoured.
 
@@ -11,11 +10,21 @@ Whenever a user submits a burger's name, your app will display the burger on the
 Each burger in the waiting area also has a Devour it! button. When the user clicks it, the burger will move to the right side of the page.
 
 
-Your app will store every burger in a database, whether devoured or not.
+This app will store every burger in a database, whether devoured or not.
+ 
+This app is not fully functional yet, still working on some kinks! So stay tuned!
+
+Here is the link to the original Burger App before it was sequelized!
+
+<https://lit-bastion-02898.herokuapp.com/>
+
+
+
+
 
 ## Deployed Link
 
-<https://lit-bastion-02898.herokuapp.com/>
+coming soon
 
 
 
@@ -30,6 +39,7 @@ Bootstrap
 Back End:
 node.js with npm packages express and express-handlebars
 mysql
+sequelize
 
 
 ## Contributing
