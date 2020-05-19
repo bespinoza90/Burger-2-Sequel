@@ -9,8 +9,9 @@ router.get("/", function (req, res) {
 router.get("/burgers", function (req, res) {
     
     db.Burger.findAll({}).then(function(dbBurger) {
-        console.log(dbBurger);
-        // res.render("index", { burger_data: dbBurger });
+        console.log("hello from line 12");
+        console.log(dbBurger[0].dataValues);
+        res.render("index", { burger_data: dbBurger });
     });
 
     //burger.all(function (burgerData) {
@@ -20,17 +21,20 @@ router.get("/burgers", function (req, res) {
 });
 
 router.post("/burgers/create", function (req, res) {
-    
+    console.log("hello from line 24");
+    console.log(req.body);
   
 
-    db.Burger.create(req.body).then(function(dbBurger) {
-        res.json(dbBurger);
-      });
-    //burger.create(req.body.burger_name, function (result) {
+    //db.Burger.create(req.body).then(function(dbBurger) {
+      //  console.log(dbBurger);
+      //});
+    db.Burger.create({
+        burger_name: req.body.burger_name
+    }).then( function (result) {
 
-       // console.log(result);
-       // res.redirect("/");
-   // });
+       console.log(result);
+       res.redirect("/");
+   });
 });
 
 
